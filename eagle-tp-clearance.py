@@ -9,7 +9,7 @@ def distance(p0, p1):
     return math.sqrt((p0[0] - p1[0])**2 + (p0[1] - p1[1])**2)
 
 parser = argparse.ArgumentParser(description='Check eagle files for the distance between testpoints. The returned value is the distance from center to center of the testpads.')
-parser.add_argument('boardfile', action="store", type=argparse.FileType('r'))
+parser.add_argument('boardfile', action="store", type=argparse.FileType('rb'))
 args = parser.parse_args(sys.argv[1:])
 
 eagle_object = objectify.fromstring(args.boardfile.read())
@@ -31,5 +31,5 @@ min_distance = distance(testpads_coordinates[0], testpads_coordinates[1])
 for p0, p1 in itertools.combinations(testpads_coordinates, 2):
   min_distance = min(min_distance, distance(p0, p1))
 
-print min_distance
+print (min_distance)
 sys.exit(0)
