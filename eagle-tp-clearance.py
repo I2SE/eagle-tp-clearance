@@ -63,7 +63,7 @@ if args.limit == 0:
   #no limit set, automatically succeed
   log.debug("result code is 0")
   sys.exit(0)
-elif min_distance <= args.limit:
+elif min_distance >= args.limit:
   #limit is not exceeded, succeed
   log.debug("result code is 0")
   sys.exit(0)
