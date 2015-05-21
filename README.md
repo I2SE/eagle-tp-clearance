@@ -1,6 +1,5 @@
 # eagle-tp-clearance
-Check eagle files for the distance between testpoints. The printed value is
-the distance from center to center of the testpads.
+[![Build Status](https://travis-ci.org/I2SE/eagle-tp-clearance.py.svg)](https://travis-ci.org/I2SE/eagle-tp-clearance.py)
 
 # usage
 usage: eagle-tp-clearance.py [-h] [-l LIMIT] [--verbose] boardfile
