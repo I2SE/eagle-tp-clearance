@@ -27,11 +27,19 @@ for part in parts_on_brd.element:
     if not part.find("attribute") == None and part_attribute.get('name')=="TP_SIGNAL_NAME":
       testpads_coordinates.append([float(part.get("x")), float(part.get("y"))])
 
-min_distance = distance(testpads_coordinates[0], testpads_coordinates[1])
-for p0, p1 in itertools.combinations(testpads_coordinates, 2):
-  min_distance = min(min_distance, distance(p0, p1))
+min_distance = 0
+if len(testpads_coordinates) >= 2:
+  #calculate distance of the first two TPs in the list as starting value
+  min_distance = distance(testpads_coordinates[0], testpads_coordinates[1])
+  #iterate over all combinations of two testpads
+  for p0, p1 in itertools.combinations(testpads_coordinates, 2):
+    #if the distance between those two testpads is smaller 
+    #than the current minimum save it as the new minimum
+    min_distance = min(min_distance, distance(p0, p1))
 
-print (min_distance)
+  print(min_distance)
+else:
+  print("none")
 
 if args.limit == 0:
   #no limit set, automatically succeed
