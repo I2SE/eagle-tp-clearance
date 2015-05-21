@@ -1,6 +1,5 @@
 from lxml import objectify
 import argparse
-#import helper
 import sys
 import math
 import itertools
@@ -10,6 +9,7 @@ def distance(p0, p1):
 
 parser = argparse.ArgumentParser(description='Check eagle files for the distance between testpoints. The returned value is the distance from center to center of the testpads.')
 parser.add_argument('boardfile', action="store", type=argparse.FileType('rb'))
+parser.add_argument("-l", "--limit", help="define a value that is used as test condition for the minimum tp distance, a TP distance higher than the limit results in an error",type=float, default=0)
 args = parser.parse_args(sys.argv[1:])
 
 eagle_object = objectify.fromstring(args.boardfile.read())
@@ -32,4 +32,13 @@ for p0, p1 in itertools.combinations(testpads_coordinates, 2):
   min_distance = min(min_distance, distance(p0, p1))
 
 print (min_distance)
-sys.exit(0)
+
+if args.limit == 0:
+  #no limit set, automatically succeed
+  sys.exit(0)
+elif min_distance <= args.limit:
+  #limit is not exceeded, succeed
+  sys.exit(0)
+else:
+  #limit is exceeded, fail
+  sys.exit(1)
