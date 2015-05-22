@@ -1,5 +1,7 @@
 # eagle-tp-clearance
 [![Build Status](https://travis-ci.org/I2SE/eagle-tp-clearance.py.svg)](https://travis-ci.org/I2SE/eagle-tp-clearance.py)
+[![Code Health](https://landscape.io/github/I2SE/eagle-tp-clearance.py/master/landscape.svg?style=flat)](https://landscape.io/github/I2SE/eagle-tp-clearance.py/master)
+
 
 # usage
 usage: eagle-tp-clearance.py [-h] [-l LIMIT] [--verbose] boardfile
