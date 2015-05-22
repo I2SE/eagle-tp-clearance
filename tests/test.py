@@ -9,7 +9,7 @@ def run_with_error(parameters):
     stream_data = process.communicate()[0]
     assert process.returncode != 0
   except OSError as e:
-    print "error executing: " + str(e)
+    print("error executing: " + str(e))
     assert 0
 
 def run_without_error(parameters):
@@ -19,7 +19,7 @@ def run_without_error(parameters):
     stream_data = process.communicate()[0]
     assert process.returncode == 0
   except OSError as e:
-    print "error executing: " + str(e)
+    print("error executing: " + str(e))
     assert 0
 
 def test_commandline_interface():
