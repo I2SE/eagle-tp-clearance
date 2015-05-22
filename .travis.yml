@@ -17,5 +17,5 @@ before_install:
  
 # command to run tests
 script: 
-  - pylint eagle-tp-clearance.py
+  - pylint --rcfile=.pylint.rc eagle-tp-clearance.py
   - nosetests tests/
