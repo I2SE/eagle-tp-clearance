@@ -58,11 +58,11 @@ def get_tp_coordinates_from_brd(boardfile):
     tp_coordinates = []
     parts_on_brd = eagle_object.drawing.board.elements
     for part in parts_on_brd.element:
-        for part_attribute in part.attribute:
-            if not part.find("attribute") == None and \
-            part_attribute.get('name') == "TP_SIGNAL_NAME":
-                tp_coordinates.append([float(part.get("x")),
-                                       float(part.get("y"))])
+        if not part.find("attribute") == None:
+            for part_attribute in part.attribute:
+                if part_attribute.get('name') == "TP_SIGNAL_NAME":
+                    tp_coordinates.append([float(part.get("x")),
+                                           float(part.get("y"))])
 
     return tp_coordinates
 
