@@ -10,6 +10,8 @@ addons:
   apt:
     packages:
     - pylint
+    - python-lxml
+    - python3-lxml
 
 # command to install dependencies
 install: 
