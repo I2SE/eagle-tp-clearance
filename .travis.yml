@@ -23,3 +23,4 @@ install:
 script: 
   - pylint --rcfile=.pylint.rc eagle-tp-clearance.py
   - nosetests tests/
+  - python eagle-tp-clearance.py -h
